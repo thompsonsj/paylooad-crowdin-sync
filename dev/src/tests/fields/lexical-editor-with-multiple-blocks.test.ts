@@ -1061,7 +1061,7 @@ describe('Lexical editor with multiple blocks', () => {
     expect(fileIds).toEqual([
       {
         field: 'content',
-        fileId: 56644,
+        fileId: 56642,
       },
       {
         field: 'fields',
@@ -1071,11 +1071,11 @@ describe('Lexical editor with multiple blocks', () => {
     expect(contentFileIds).toEqual([
       {
         field: `blocks.65d67d8191c92e447e7472f8.highlight.content`,
-        fileId: 56643,
+        fileId: 56644,
       },
       {
         field: 'blocks',
-        fileId: 56642,
+        fileId: 56643,
       },
     ])
     const translationsApi = new payloadCrowdinSyncTranslationsApi(pluginOptions, payload)

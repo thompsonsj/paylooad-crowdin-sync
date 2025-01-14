@@ -1205,7 +1205,7 @@ describe('Lexical editor with multiple blocks', () => {
     expect(fileIds).toEqual([
       {
         field: `items.${arrayIds[1]}.block.${blockIds[1]}.basicBlockLexical.content`,
-        fileId: 48315,
+        fileId: 48313,
       },
       {
         field: `items.${arrayIds[0]}.block.${blockIds[0]}.basicBlockLexical.content`,
@@ -1219,11 +1219,11 @@ describe('Lexical editor with multiple blocks', () => {
     expect(contentFileIds).toEqual([
       {
         field: `blocks.${lexicalBlockIds[0]}.highlight.content`,
-        fileId: 48314,
+        fileId: 48315,
       },
       {
         field: 'blocks',
-        fileId: 48313,
+        fileId: 48314,
       },
     ]);
     const translationsApi = new payloadCrowdinSyncTranslationsApi(

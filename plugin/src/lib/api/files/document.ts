@@ -272,6 +272,14 @@ export class payloadCrowdinSyncDocumentFilesApi extends payloadCrowdinSyncFilesA
         // no need to detect change - this has already been done on the field's JSON object
         blockContent = value && extractLexicalBlockContent(value.root)
         blockConfig = editorConfig && getLexicalBlockFields(editorConfig)
+        await this.createOrUpdateFile({
+          name: name,
+          fileData: html,
+          fileType: "html",
+          ...(!isEmpty(blockContent) && {
+            sourceBlocks: blockContent
+          }),
+        });
         if (blockContent && blockContent.length > 0 && blockConfig) {
           await this.createLexicalBlocks({
             collection,
@@ -281,14 +289,6 @@ export class payloadCrowdinSyncDocumentFilesApi extends payloadCrowdinSyncFilesA
             req: this.req,
           })
         }
-        await this.createOrUpdateFile({
-          name: name,
-          fileData: html,
-          fileType: "html",
-          ...(!isEmpty(blockContent) && {
-            sourceBlocks: blockContent
-          }),
-        });
       } else {
         const html = "<span>lexical configuration not found</span>"
         await this.createOrUpdateFile({
